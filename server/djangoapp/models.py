@@ -25,7 +25,7 @@ class CarModel(models.Model):
         WAGON: "Wagon",
     }
 
-    dealer_id = models.IntegerField(null=False)
+    dealer_id = models.IntegerField(null=True)
     name = models.CharField(max_length=255, null=False)
     type = models.CharField(choices=CAR_TYPE_CHOICES, default=SUV)
     year = models.IntegerField(null=False, default=2026,
