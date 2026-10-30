@@ -1,7 +1,7 @@
 # Uncomment the following imports before adding the Model code
 
 from django.db import models
-from django.utils.timezone import now
+# from django.utils.timezone import now
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -13,6 +13,7 @@ class CarMake(models.Model):
 
     def __str__(self):
         return self.name
+
 
 class CarModel(models.Model):
     SUV = "SUV"
@@ -32,7 +33,8 @@ class CarModel(models.Model):
         validators=[
             MaxValueValidator(2027),
             MinValueValidator(2015)
-        ])
+        ]
+    )
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
 
     def __str__(self):
