@@ -29,12 +29,10 @@ class CarModel(models.Model):
     dealer_id = models.IntegerField(null=True)
     name = models.CharField(max_length=255, null=False)
     type = models.CharField(choices=CAR_TYPE_CHOICES, default=SUV)
-    year = models.IntegerField(null=False, default=2026,
-        validators=[
-            MaxValueValidator(2027),
-            MinValueValidator(2015)
-        ]
-    )
+    year = models.IntegerField(null=False, default=2026, validators=[
+        MaxValueValidator(2027),
+        MinValueValidator(2015)
+    ])
     car_make = models.ForeignKey(CarMake, on_delete=models.CASCADE)
 
     def __str__(self):
